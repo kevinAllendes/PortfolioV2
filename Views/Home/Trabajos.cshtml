@@ -1,0 +1,31 @@
+@model TrabajosViewModel
+@{
+    ViewData["Title"] = "Experiencia laboral";
+}
+
+@if(Model.Empleos is not null){
+    <div class="text-center" style="padding-top: 6rem;">
+        <h1>Mi experiencia laboral</h1>
+        <p style="fw-bold">Aqui puedes ver mis empleos recientes</p>
+    </div>
+    <hr>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach(var empleos in Model.Empleos)
+        {
+            <div clas="col">
+                <img src="@empleos.ImagenURL"  style="width:100px; height: 100px;"class="card-img-top" alt="imagen empleo"/>
+                <div class="card-body">
+                    <h5 class="card-title">@empleos.Empresa</h5>
+                    <p class="card-text">@empleos.Puesto</p>
+                </div>
+                <div class="card-footer">
+                    <a class="btn btn-primary" href="@empleos.paginaWeb" target="_blank" rel="noonopener noreferrer"> Visitar </a>
+                </div>
+
+            </div>
+        }
+        </div>
+    </div> 
+}
+
